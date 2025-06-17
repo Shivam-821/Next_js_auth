@@ -48,6 +48,7 @@ cp .env.example .env.local
 # Start the dev server
 npm run dev
 
+```bash
 ## 📁 Folder structure
 src/
 ├── app/
@@ -68,6 +69,7 @@ src/
 ├── models/
 ├── helpers/
 ├── dbconfig/
+```
 
 🔐 Authentication Flow
 User signs up → Email is sent for verification
