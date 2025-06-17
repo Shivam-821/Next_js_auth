@@ -9,7 +9,7 @@ export async function connect() {
       return;
     }
 
-    await mongoose.connect(mongo_uri, { dbName: "next_auth" });
+    await mongoose.connect(mongo_uri);
     const connection = mongoose.connection;
 
     connection.on("connected", () => {
