@@ -43,8 +43,12 @@ npm install
 
 # Add your environment variables
 cp .env.example .env.local
+```
 
+# Start the dev server
+npm run dev
 
+```bash
 ## 📁 Folder structure
 src/
 ├── app/
@@ -65,8 +69,10 @@ src/
 ├── models/
 ├── helpers/
 ├── dbconfig/
+```
 
-🔐 Authentication Flow
+## 🔐 Authentication Flow
+
 User signs up → Email is sent for verification
 
 User logs in → Gets JWT and session
@@ -75,6 +81,7 @@ Forgot password → Link sent to email → Creates new password
 
 Protected routes → Checked via JWT and middleware
 
+---
+## 📬 Contact
 
-📬 Contact
 Made with ❤️ by Shivam Raj
