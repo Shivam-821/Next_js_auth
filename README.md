@@ -43,7 +43,10 @@ npm install
 
 # Add your environment variables
 cp .env.example .env.local
+```
 
+# Start the dev server
+npm run dev
 
 ## 📁 Folder structure
 src/
