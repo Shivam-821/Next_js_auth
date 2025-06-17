@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import toast, {Toaster} from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -11,45 +12,44 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
-  const [buttonDisabled, setButtonDisabled] = React.useState(false)
-  const [loading, setLoading] = React.useState(false)
-  const [toggle, setToggle] = React.useState(true)
+  const [buttonDisabled, setButtonDisabled] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [toggle, setToggle] = React.useState(true);
 
   const onLogin = async () => {
     try {
       if (!buttonDisabled) {
-        setLoading(true)
-        const response = await axios.post('/api/users/login', user)
-        console.log(response)
+        setLoading(true);
+        const response = await axios.post("/api/users/login", user);
+        console.log(response);
         toast.success("Login success");
-        setLoading(false)
-        await new Promise((r) => setTimeout(r, 1000)); 
+        setLoading(false);
+        await new Promise((r) => setTimeout(r, 1000));
         router.push("/profile");
       } else {
-        toast.error('Enter the required field')
+        toast.error("Enter the required field");
       }
     } catch (error: any) {
-      setLoading(false)
+      setLoading(false);
       setUser({ email: "", password: "" });
-      console.log("Login failed", error.message)
+      console.log("Login failed", error.message);
       toast.error(error.response.data.error);
     }
   };
 
   const handleKeyDown = (e: any) => {
-    if(e.key === 'Enter'){
-      onLogin()
+    if (e.key === "Enter") {
+      onLogin();
     }
-  }
+  };
 
   useEffect(() => {
-    if(user.email.length > 0 && user.password.length > 0){
-      setButtonDisabled(false)
+    if (user.email.length > 0 && user.password.length > 0) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
     }
-    else {
-      setButtonDisabled(true)
-    }
-  }, [user])
+  }, [user]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
